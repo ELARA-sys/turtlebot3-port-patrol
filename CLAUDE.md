@@ -45,9 +45,12 @@ Changes to the rules below:
   short (3–5 line) explanation of what happened and one likely interview
   question I should be able to answer. Don't block progress on my answer.
 
-Patrol node authorship: option (a). I write the patrol node code myself with
-your hints and reviews (the original rule still applies: only write code for
-me if I am stuck after two attempts, then explain it line by line).
+Patrol node authorship: option (b), changed 2026-10-17 because of time.
+Claude writes the patrol node code and explains it to me block by block; I
+must understand and be able to explain every line. The README must say
+honestly that the patrol node was written by Claude (AI-assisted) and that
+my part was choosing the waypoints, integrating, testing and debugging.
+(Replaces the earlier option (a): I write the code myself with hints.)
 
 Still in force: README honesty (clearly separate existing software from my own
 contribution), PROGRESS.md upkeep, LEARNING_LOG.md written only by me in my

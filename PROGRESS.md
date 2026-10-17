@@ -1,6 +1,6 @@
 # PROGRESS
 
-Fast-track plan (see CLAUDE.md). Patrol node: written by me with hints (option a).
+Fast-track plan (see CLAUDE.md). Patrol node: written by Claude, explained to me (option b, changed 2026-10-17). README must say so.
 
 ## Done
 - [x] Environment verified: WSL2, Ubuntu 24.04.5, x86_64, VS Code connected to WSL
@@ -19,8 +19,10 @@ Fast-track plan (see CLAUDE.md). Patrol node: written by me with hints (option a
   params_file:=config/nav2_burger.yaml (scan.source_timeout 0.2 -> 2.0: slow Gazebo made
   collision_monitor treat every scan as stale and block all motion)
 - [x] 4. Nav2 Goal from RViz reached (2026-10-17, short goal ~0.5 m)
-- [ ] 5. OPTIONAL: patrol node (goToPose, one goal at a time, result handling, timeout, skip, summary)
-- [ ] 6. OPTIONAL: container-yard world
+- [x] 5. Patrol node (written by Claude, option b) src/port_patrol/port_patrol/patrol_node.py,
+  waypoints in src/port_patrol/config/waypoint.yaml: A (0.22,1.21) B (1.23,2.33) C (2.71,2.41).
+  First run 2026-10-17, clear path: 3/3 SUCCEEDED, 128.7 s.
+- [ ] 6. OPTIONAL: container-yard world (skipped for now)
 - [ ] 7. MUST: final test (clear path / obstacle)
 - [ ] 8. README, demo GIF
 
@@ -31,4 +33,6 @@ Fast-track plan (see CLAUDE.md). Patrol node: written by me with hints (option a
 - [x] Relaunched Gazebo after reset problem; burger visible, teleop drives the robot (2026-10-15)
 
 ## Next
-- Try one long goal across the arena; commit; then decide on optional step 5 (patrol node) vs step 7 (final test)
+- Commit step 5 (my own commit message)
+- Step 7: final test, clear path + obstacle on route (record rerouted / stuck / skipped)
+- Review notes for this session: docs/REVIEW_NOTES.md
