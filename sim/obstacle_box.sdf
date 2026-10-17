@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- Static box used as an obstacle in the step 7 test. 0.3 x 0.3 x 0.4 m,
+     tall enough to cross the burger LiDAR plane (~0.17 m). -->
+<sdf version="1.8">
+  <model name="obstacle_box">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry><box><size>0.3 0.3 0.4</size></box></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><box><size>0.3 0.3 0.4</size></box></geometry>
+        <material>
+          <ambient>0.8 0.3 0.1 1</ambient>
+          <diffuse>0.8 0.3 0.1 1</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
