@@ -6,10 +6,12 @@
 0. 第一次 Git commit 和 push（完成环境搭建这个里程碑）。
 1. 一次性安装 TurtleBot3 仿真、Gazebo、SLAM Toolbox 和 Nav2，然后启动一个标准的 TurtleBot3 世界。这一步同时用来检查 Gazebo 在我电脑上的运行性能。
 2. 用 teleop 键盘控制机器人，同时让 SLAM 建图，然后保存地图。
-3. 在 Nav2 中加载地图，并在 RViz 里发送一个导航目标。
-4. 编写巡逻点（waypoint patrol）节点：使用 `goToPose()`，一次只发一个目标，不使用 `followWaypoints()`；处理 SUCCEEDED / FAILED / CANCELED 三种结果；加入超时；跳过失败的巡逻点；最后打印总结。
-5. 两次快速测试（路线畅通、路线上有障碍物），写 README，做演示 GIF。
+3. 在 Nav2 中加载保存好的地图，开启自动导航。
+4. 测试自动导航：在 RViz 里点一个目标位置，机器人自己开过去。
+5. **可选**，时间允许才做：编写巡逻点（waypoint patrol）节点（A → B → C）：使用 `goToPose()`，一次只发一个目标，不使用 `followWaypoints()`；处理 SUCCEEDED / FAILED / CANCELED 三种结果；加入超时；跳过失败的巡逻点；最后打印总结。
 6. **可选**，只在时间允许且 Gazebo 运行流畅时才做：一个简单的集装箱堆场世界（复制一个标准 TurtleBot3 世界，加几个方块当"集装箱"），重新 SLAM 建图，在 YAML 里写新的巡逻点，重新录制演示。
+7. **必做**：最终测试。检查导航（以及巡逻节点，如果做了的话）能否正常工作，路线畅通测一次、路线上放障碍物测一次，记录机器人是绕开、卡住还是跳过。
+8. 写 README，做演示 GIF。
 
 对原有规则的修改（如适用）：
 - 跳过 Milestone 2（publisher/subscriber 练习）以及所有非必要的 VS Code 配置。
