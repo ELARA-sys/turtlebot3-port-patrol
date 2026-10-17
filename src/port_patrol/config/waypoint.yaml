@@ -1,0 +1,5 @@
+patrol_node:
+  ros__parameters:
+    waypoint_names: ["A", "B", "C"]
+    waypoints_x: [0.22, 1.23, 2.71]
+    waypoints_y: [1.21, 2.33, 2.41]
