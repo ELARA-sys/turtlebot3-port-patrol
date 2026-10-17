@@ -15,16 +15,28 @@ Plan, in order:
    then launch a standard TurtleBot3 world. This doubles as the Gazebo
    performance check on my machine.
 2. Drive the robot with teleop while SLAM builds a map, then save the map.
-3. Load the map in Nav2 and send a navigation goal from RViz.
-4. Write the waypoint patrol node: goToPose(), one goal at a time, no
-   followWaypoints(), SUCCEEDED/FAILED/CANCELED handling, timeouts, skip
-   failed waypoints, final summary.
-5. Two quick test runs (clear path, obstacle), README, demo GIF.
+3. Load the saved map in Nav2 to enable autonomous navigation.
+4. Test autonomous navigation: send goals from RViz and check the robot
+   drives itself to the clicked location.
+5. OPTIONAL, if time allows: write the waypoint patrol node (A -> B -> C):
+   goToPose(), one goal at a time, no followWaypoints(),
+   SUCCEEDED/FAILED/CANCELED handling, timeouts, skip failed waypoints,
+   final summary.
 6. OPTIONAL, only if time allows and Gazebo runs well: a simple
    container-yard world (copy a standard TurtleBot3 world and add box
    "containers"), re-run SLAM, new waypoints in YAML, re-record the demo.
+7. MUST DO: final test. Check that the navigation (and the patrol node, if
+   built) works, once with a clear path and once with an obstacle on the
+   route. Record whether the robot rerouted, got stuck or skipped.
+8. README and demo GIF.
 
 Changes to the rules below:
+- This plan replaces the "Plan" and "Scope rules" sections below. Steps
+  0–4, 7 and 8 are required; steps 5 and 6 are optional. The final test
+  (step 7) is not dropped when time is short.
+- If the patrol node is not built, the README must say the project sets up,
+  integrates and tests existing software (TurtleBot3, SLAM Toolbox, Nav2),
+  and must not claim any code of my own.
 - Skip Milestone 2 (the publisher/subscriber practice exercise) and any
   non-essential VS Code setup.
 - Build steps 1–5 in a standard TurtleBot3 world. The custom world is step 6 only.
