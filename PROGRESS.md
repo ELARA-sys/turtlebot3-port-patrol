@@ -23,7 +23,8 @@ Fast-track plan (see CLAUDE.md). Patrol node: written by Claude, explained to me
   waypoints in src/port_patrol/config/waypoint.yaml: A (0.22,1.21) B (1.23,2.33) C (2.71,2.41).
   First run 2026-10-17, clear path: 3/3 SUCCEEDED, 128.7 s.
 - [ ] 6. OPTIONAL: container-yard world (skipped for now)
-- [ ] 7. MUST: final test (clear path / obstacle)
+- [x] 7. Final test, results in docs/TEST_RESULTS.md (2026-10-17): clear path 3/3 128.7 s;
+  box on B->C 3/3 92.8 s, rerouted. TODO in file: recoveries count + my own observation
 - [ ] 8. README, demo GIF
 
 ## Notes
@@ -33,6 +34,6 @@ Fast-track plan (see CLAUDE.md). Patrol node: written by Claude, explained to me
 - [x] Relaunched Gazebo after reset problem; burger visible, teleop drives the robot (2026-10-15)
 
 ## Next
-- Commit step 5 (my own commit message)
-- Step 7: final test, clear path + obstacle on route (record rerouted / stuck / skipped)
+- Fill the 2 TODOs in docs/TEST_RESULTS.md, commit (fix the '你的描述' commit message)
+- Step 8: README + demo GIF + map image
 - Review notes for this session: docs/REVIEW_NOTES.md
