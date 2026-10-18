@@ -63,6 +63,16 @@ without the node skipping anything.
 An earlier attempt with the box (same day, not logged) also got past it:
 `/amcl_pose` afterwards was (2.49, 2.47), about 0.23 m from C.
 
+Repeat runs with the same box (2026-10-18, while recording the demo GIF):
+
+| Run | Start point | Route | Result | Time |
+|-----|-------------|-------|--------|------|
+| 2   | spawn point | A -> B -> C | 3/3 SUCCEEDED | 119.6 s |
+| 3   | C (left there by run 2) | C -> A -> B -> C | 3/3 SUCCEEDED | 213.4 s |
+
+Run 3 is the one in `docs/demo.gif`. Only the summary lines of these runs
+were kept, not the full logs.
+
 ## Test 3: waypoint B unreachable (2026-10-18)
 
 Purpose: run the node's failure handling (timeout, skip, summary), which
@@ -107,8 +117,8 @@ and the summary reported 2/3.
 
 ## Limits of these tests
 
-- Each test has one logged run (plus one unlogged obstacle run), so there is
-  no real data on how repeatable they are.
+- Test 2 (box on the route) has three runs that all reached 3/3; Tests 1
+  and 3 have one run each. That is still too few to say how repeatable they are.
 - Only one obstacle size was tested, in two positions (on the route, and on a
   waypoint). Moving obstacles were not tested.
 - The FAILED path (Nav2 itself giving up) was not seen; in Test 3 the node's

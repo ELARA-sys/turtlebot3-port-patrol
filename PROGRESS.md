@@ -35,6 +35,6 @@ Fast-track plan (see CLAUDE.md). Patrol node: written by Claude, explained to me
 - [x] Relaunched Gazebo after reset problem; burger visible, teleop drives the robot (2026-10-15)
 
 ## Next
-- Commit Test 3 results
-- Step 8: demo GIF, map image, README (must say patrol node + mapping drive were AI-assisted)
+- Commit Test 3 results + demo GIF (docs/demo.gif, recorded 2026-10-18 with sim/demo_camera.sdf + sim/record_demo.py)
+- Step 8: map image, README (must say patrol node + mapping drive were AI-assisted)
 - Review notes for this session: docs/REVIEW_NOTES.md
