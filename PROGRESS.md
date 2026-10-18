@@ -24,7 +24,8 @@ Fast-track plan (see CLAUDE.md). Patrol node: written by Claude, explained to me
   First run 2026-10-17, clear path: 3/3 SUCCEEDED, 128.7 s.
 - [ ] 6. OPTIONAL: container-yard world (skipped for now)
 - [x] 7. Final test, results in docs/TEST_RESULTS.md (2026-10-17): clear path 3/3 128.7 s;
-  box on B->C 3/3 92.8 s, rerouted. TODO in file: recoveries count + my own observation
+  box on B->C 3/3 92.8 s, rerouted.
+  Test 3 (2026-10-18): box on waypoint B, timeout 60 s -> A ok, B TIMEOUT + skipped, C ok, 2/3, 105.6 s
 - [ ] 8. README, demo GIF
 
 ## Notes
@@ -34,6 +35,6 @@ Fast-track plan (see CLAUDE.md). Patrol node: written by Claude, explained to me
 - [x] Relaunched Gazebo after reset problem; burger visible, teleop drives the robot (2026-10-15)
 
 ## Next
-- Fill the 2 TODOs in docs/TEST_RESULTS.md, commit (fix the '你的描述' commit message)
-- Step 8: README + demo GIF + map image
+- Commit Test 3 results
+- Step 8: demo GIF, map image, README (must say patrol node + mapping drive were AI-assisted)
 - Review notes for this session: docs/REVIEW_NOTES.md

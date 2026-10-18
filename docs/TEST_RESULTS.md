@@ -63,10 +63,54 @@ without the node skipping anything.
 An earlier attempt with the box (same day, not logged) also got past it:
 `/amcl_pose` afterwards was (2.49, 2.47), about 0.23 m from C.
 
+## Test 3: waypoint B unreachable (2026-10-18)
+
+Purpose: run the node's failure handling (timeout, skip, summary), which
+Tests 1 and 2 never triggered.
+
+Obstacle: the same box (`sim/obstacle_box.sdf`) placed directly on waypoint B:
+map (1.23, 2.33), Gazebo (-0.77, 1.83). Goal timeout lowered to 60 s with
+`-p goal_timeout_sec:=60.0`.
+
+| Waypoint | Result    |
+|----------|-----------|
+| A        | SUCCEEDED |
+| B        | TIMEOUT   |
+| C        | SUCCEEDED |
+
+Summary from the node: `Reached 2/3, failed or skipped 1, time 105.6 s`.
+
+Key log lines:
+
+```
+[WARN] [patrol_node]: B: no result after 60 s, canceling
+[INFO] [patrol_node]: Canceling current task.
+[WARN] [patrol_node]: B: TIMEOUT, skipping to next waypoint
+[INFO] [patrol_node]: Going to C (2.71, 2.41)
+```
+
+Evidence from the logs:
+- On the way to B the remaining distance jumped from 1.99 m to 2.85 m and
+  then varied, which fits Nav2 replanning once the box appeared in the costmap.
+- It then stayed at 0.91 m for about 25 s (no progress), then dropped to
+  0.29 m just before the timeout. The planner may plan to a point up to 0.5 m
+  from the goal (`tolerance: 0.5`), but the robot cannot get within the
+  0.25 m goal tolerance because the box sits on B.
+- Nav2 did not return FAILED within 60 s, so the node's own timeout decided
+  the outcome. Whether Nav2 would have given up later was not tested.
+
+What I saw: the robot reached A, then drove towards B and kept trying until
+it timed out, then skipped B and went straight to C and finished.
+
+Outcome: **skipped**. The timeout canceled the goal, the node moved on to C,
+and the summary reported 2/3.
+
 ## Limits of these tests
 
 - Each test has one logged run (plus one unlogged obstacle run), so there is
   no real data on how repeatable they are.
-- Only one obstacle size and position was tested. A route that is completely
-  blocked (where the skip and timeout logic would run) was not tested.
+- Only one obstacle size was tested, in two positions (on the route, and on a
+  waypoint). Moving obstacles were not tested.
+- The FAILED path (Nav2 itself giving up) was not seen; in Test 3 the node's
+  timeout fired first.
 - Simulation only, with Gazebo running at about 75 % real time.
