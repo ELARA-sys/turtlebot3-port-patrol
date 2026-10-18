@@ -3,3 +3,10 @@ install/
 log/
 __pycache__/
 *.pyc
+
+# Personal study notes, kept locally only
+CLAUDE.md
+PLAN.md
+PROGRESS.md
+docs/REVIEW_NOTES.md
+*.docx
